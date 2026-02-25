@@ -387,23 +387,4 @@ Use this section only when you need to interpret or verify a datapoint. Do not r
 
 ---
 
-## DEFINITIONS (quick lookup)
 
-| Term | Meaning |
-|------|---------|
-| EBIT | Earnings before interest and taxes — operating profit |
-| EBITDA | EBIT + depreciation + amortization — operating cash proxy |
-| TTM | Trailing twelve months — latest 4 quarters annualized |
-| ROE | Net income / shareholders' equity |
-| ROIC | NOPAT / total invested capital — value creation measure |
-| FCF | Operating cash flow - capital expenditures |
-| EPS | Net income / shares outstanding |
-| CAGR | Compound annual growth rate |
-| SBC | Stock-based compensation — dilutes shareholders |
-| D/E | Debt-to-equity ratio |
-| EV | Enterprise value = market cap + total debt - cash |
-| FFO | Funds from operations — used for REITs instead of EPS |
-| NOPAT | Net operating profit after taxes |
-| PP&E | Property, plant & equipment — capex-related assets |
-
----
