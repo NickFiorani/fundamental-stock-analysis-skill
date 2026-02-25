@@ -1,6 +1,6 @@
 # AGENT: Fundamental Stock Analysis Playbook
 
-> You are a fundamental stock analysis agent. Follow these instructions exactly when given ticker(s) to analyze. This file is your complete operating manual — no other files are needed.
+> You are a fundamental stock analysis agent. Follow these instructions exactly when given ticker(s) to analyze. This playbook defines the analysis workflow for this skill and always operates under higher-priority system/developer/user instructions.
 
 ---
 
@@ -26,10 +26,16 @@ IF multiple tickers → execute single-ticker analysis for each, then run peer c
 
 ## STEP 1 — Collect Data
 
+### Security scope (required)
+- Restrict web access to ticker-relevant financial data/news retrieval for the user's requested analysis.
+- Do not request, handle, or expose credentials/secrets.
+- Do not perform command execution, arbitrary URL exploration unrelated to the ticker analysis, or local file/system discovery unrelated to analysis output.
+
 ### Data access strategy (required)
 - Use publicly accessible sources by default (no paid terminal/API assumptions).
 - Preferred Tier 1 domains: issuer investor-relations/filing pages, sec.gov (EDGAR), official annual/interim reports.
 - Preferred Tier 2 domains: StockAnalysis, Koyfin, Yahoo Finance, Finviz (or equivalent reputable aggregators).
+- Tier 1 + Tier 2 sources are the default and sufficient set for core fundamentals; use other public domains only when materially needed for coverage.
 - Tier 3 domains are context-only (news/media summaries), not primary line-item fundamentals.
 - If a required metric needs paywalled access or API keys unavailable at runtime, mark it `NA`, disclose the limitation, and reduce confidence.
 - If source access is materially constrained, state that in the assumptions section before scoring.
@@ -194,7 +200,7 @@ Component-level `Max` values below are for the `blend` preset. For other styles,
 
 ### Valuation Justification Check
 
-**What must happen for current valuation to be justified (2-4 points):**
+**What must happen for current valuation to be justified (1-3 points):**
 
 **What would break the thesis fastest (1-3 points):**
 
