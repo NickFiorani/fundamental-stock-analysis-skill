@@ -9,7 +9,7 @@ description: Fundamental equity analysis and peer ranking using a structured sco
 2. Follow the playbook steps exactly (input parse -> data collection -> quick screen -> scoring -> rating -> output).
 3. For multi-ticker requests, analyze each ticker first, then rank peers and select best pick with invalidation triggers.
 4. Always include confidence level and call out stale/conflicting data explicitly.
-5. Append the required machine-readable JSON block at the end.
+5. Do not append any machine-readable JSON block in user-facing output.
 
 ## Output discipline
 - Keep conclusions decisive and risk-aware.
