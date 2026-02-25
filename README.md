@@ -31,13 +31,14 @@ Use this skill when the user asks things like:
 2. Follow the playbook steps in order.
 3. For multi-ticker requests, analyze each ticker first, then rank peers.
 4. Always include confidence and call out stale/conflicting data.
-5. Append the required machine-readable JSON block at the end.
+5. Do not append any machine-readable JSON block in user-facing output.
 
 ## Output expectations
 - Be decisive, not vague.
 - Separate quality, balance-sheet safety, and valuation.
 - Never fabricate missing metrics.
 - Include data-source links in a final `Sources` section.
+- User-facing output is narrative/structured text only (no machine-readable export block).
 
 ## Disclaimer
 

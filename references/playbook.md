@@ -17,6 +17,7 @@ Then run a **Ticker Disambiguation Gate** before any analysis:
 1. Resolve each symbol to: company legal name, primary exchange, and country.
 2. If symbol is ambiguous across markets (e.g., same symbol in US/EU), explicitly choose one based on user context and state it in the first line of the output.
 3. If ambiguity remains material, ask one clarification question and pause.
+4. Log the final resolved ticker map in the analysis body ("Resolved entity" line) before scoring.
 
 IF only one ticker → execute single-ticker analysis.
 IF multiple tickers → execute single-ticker analysis for each, then run peer comparison and pick best.
@@ -24,6 +25,14 @@ IF multiple tickers → execute single-ticker analysis for each, then run peer c
 ---
 
 ## STEP 1 — Collect Data
+
+### Data access strategy (required)
+- Use publicly accessible sources by default (no paid terminal/API assumptions).
+- Preferred Tier 1 domains: issuer investor-relations/filing pages, sec.gov (EDGAR), official annual/interim reports.
+- Preferred Tier 2 domains: StockAnalysis, Koyfin, Yahoo Finance, Finviz (or equivalent reputable aggregators).
+- Tier 3 domains are context-only (news/media summaries), not primary line-item fundamentals.
+- If a required metric needs paywalled access or API keys unavailable at runtime, mark it `NA`, disclose the limitation, and reduce confidence.
+- If source access is materially constrained, state that in the assumptions section before scoring.
 
 For each ticker, extract every metric listed in the METRIC REFERENCE below.
 
@@ -243,6 +252,7 @@ Use concise source attribution for **financial/fundamental data pages only** (do
 - If data comes from multiple providers, list one line per provider with a compact label.
 
 Do **not** append any machine-readable JSON block in user-facing output.
+Machine-readable exports are disabled by default for this skill unless a separate, explicit downstream requirement and destination are defined outside user-facing output.
 
 ---
 
